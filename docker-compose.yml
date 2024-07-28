@@ -38,6 +38,14 @@ services:
     restart: always
     networks:
       - dev
+  node:
+        image: node:20 # Choisissez la version de Node.js souhaitée
+        container_name: node_certification
+        working_dir: /var/www/app
+        user: "$USERID"
+        volumes:
+            - .:/var/www/app
+        tty: true
 
 networks:
   dev:
