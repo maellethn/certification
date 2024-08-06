@@ -1,0 +1,43 @@
+ul.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .menu-link {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        &.home-link::before {
+            background-image: url('../../../images/icons/maison.svg');
+        }
+
+        &.quiz-link::before {
+            background-image: url('../../../images/icons/question.svg');
+        }
+
+        &.profile-link::before {
+            background-image: url('../../../images/icons/utilisateur.svg');
+        }
+
+        .sub-menu {
+            display: none;
+        }
+
+        &:hover .sub-menu {
+            display: block;
+            margin-top: 5rem;
+            position: fixed;
+        }
+    }
+}

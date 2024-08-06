@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tags{% endblock %}
+
+{% block body %}
+
+    <table>
+        <thead>
+            <td>Id</td>
+            <td>name</td>
+            <td>Number of questions</td>
+            <td>Actions</td>
+        </thead>
+        <tbody>
+            {% for tag in tags %}
+                <tr>
+                    <td>{{ tag.id }}</td>
+                    <td>{{ tag.name }}</td>
+                    <td>{{ tag.questions|length }}</td>
+                    <td>
+                        <a href="{{ path('app_admin_add_tags',{'tag':tag.id}) }}">Edit</a>
+                        <a href="{{ path('app_admin_delete_tags',{'tag':tag.id}) }}">Delete</a>
+                    </td>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

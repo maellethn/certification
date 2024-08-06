@@ -1,0 +1,35 @@
+<header>
+	<nav>
+		<ul class="menu">
+			<li class="menu-link home-link">
+				<a href="">Home</a>
+			</li>
+			<li class="menu-link quiz-link">
+				<a href="">Quiz</a>
+			</li>
+			<li class="menu-link profile-link">
+				<span>Profile</span>
+				<ul class="sub-menu">
+					{% if app.user %}
+						<li>
+							<a href="">My settings</a>
+						</li>
+						<li>
+							<a href="">My statistics</a>
+						</li>
+						<li>
+							<a href="{{ path('app_logout')}}">Log-out</a>
+						</li>
+					{% else %}
+						<li>
+							<a href="{{ path('app_security_register')}}">Register</a>
+						</li>
+						<li>
+							<a href="{{ path('app_login')}}">Log-in</a>
+						</li>
+					{% endif %}
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</header>
