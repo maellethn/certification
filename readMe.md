@@ -29,3 +29,15 @@ L'objectif principal de ce projet est de fournir une plateforme éducative perme
 1. Clonez le dépôt :
    ```bash
    git clone https://github.com/maellethn/certification.git
+   
+2. Installer les dépendances symfony via composer
+   ```bash
+   composer install
+   
+3. Installer les dépendances du theme via node
+   ```bash
+   npm install
+   
+4. Compiler le theme
+   ```bash
+   npm run watch
