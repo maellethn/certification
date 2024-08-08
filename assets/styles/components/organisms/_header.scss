@@ -6,7 +6,7 @@ ul.menu {
     .menu-link {
         display: flex;
         align-items: center;
-        padding: 1.5rem;
+        padding-top: 1.5rem;
 
         &::before {
             content: '';
@@ -32,6 +32,34 @@ ul.menu {
 
         .sub-menu {
             display: none;
+            padding-top: 2rem;
+
+            li {
+                display: flex;
+                flex-direction: column;
+                background-color: $lighter-grey;
+                border-radius: .5rem;
+
+                a {
+                    padding: .5rem .5rem 1rem;
+                    border-bottom: solid 1px white;
+
+                    &:first-child {
+                        border-top-left-radius: .5rem;
+                        border-top-right-radius: .5rem;
+                    }
+
+                    &:last-child {
+                        border-bottom-left-radius: .5rem;
+                        border-bottom-right-radius: .5rem;
+                    }
+
+                    &:hover {
+                        background-color: $grey;
+                        color: $secondary;
+                    }
+                }
+            }
         }
 
         &:hover .sub-menu {

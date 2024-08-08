@@ -24,9 +24,11 @@
 
 		{% block content %}
 			<main>
-				{% block body %}
-					{# Main content will be injected here #}
-				{% endblock %}
+				<div class="wrapper">
+					{% block body %}
+						{# Main content will be injected here #}
+					{% endblock %}
+				</div>
 			</main>
 		{% endblock %}
 

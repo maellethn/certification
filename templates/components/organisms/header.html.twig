@@ -13,18 +13,12 @@
 					{% if app.user %}
 						<li>
 							<a href="">My settings</a>
-						</li>
-						<li>
 							<a href="">My statistics</a>
-						</li>
-						<li>
 							<a href="{{ path('app_logout')}}">Log-out</a>
 						</li>
 					{% else %}
 						<li>
 							<a href="{{ path('app_security_register')}}">Register</a>
-						</li>
-						<li>
 							<a href="{{ path('app_login')}}">Log-in</a>
 						</li>
 					{% endif %}

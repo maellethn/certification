@@ -6,10 +6,12 @@
 
     <table>
         <thead>
-            <td>Id</td>
-            <td>name</td>
-            <td>Number of questions</td>
-            <td>Actions</td>
+        <tr>
+            <th>Id</th>
+            <th>name</th>
+            <th>Number of questions</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
             {% for tag in tags %}
@@ -17,9 +19,13 @@
                     <td>{{ tag.id }}</td>
                     <td>{{ tag.name }}</td>
                     <td>{{ tag.questions|length }}</td>
-                    <td>
-                        <a href="{{ path('app_admin_add_tags',{'tag':tag.id}) }}">Edit</a>
-                        <a href="{{ path('app_admin_delete_tags',{'tag':tag.id}) }}">Delete</a>
+                    <td class="actions">
+                        {% include "components/atoms/edit_link.html.twig" with {
+                            'path': path('app_admin_add_tags',{'tag':tag.id})
+                        } %}
+                        {% include "components/atoms/delete_link.html.twig" with {
+                            'path': path('app_admin_delete_tags',{'tag':tag.id})
+                            } %}
                     </td>
             {% endfor %}
         </tbody>

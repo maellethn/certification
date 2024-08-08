@@ -24,7 +24,7 @@ class TagsController extends AbstractController
     }
 
     #[Route('/admin/tags/manage/{tag?}', name: 'app_admin_add_tags')]
-    public function create(Request $request, ?Tags $tag = null, EntityManagerInterface $entityManager): Response
+    public function create(Request $request, EntityManagerInterface $entityManager, ?Tags $tag = null): Response
     {
         if (!$tag)
             $tag = new Tags();
