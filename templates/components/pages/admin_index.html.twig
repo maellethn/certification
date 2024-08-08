@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            {% for field in fields %}
+                <th>{{ field }}</th>
+            {% endfor %}
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+        <tr>
+            <td>{{ entity.id }}</td>
+            {% for field in fields %}
+                <td>{{ attribute(entity, field)}}</td>
+            {% endfor %}
+            <td class="actions">
+                {% include "components/atoms/edit_link.html.twig" with {
+                    'path': path(editRoute,{'entity':entity.id})
+                } %}
+                {% include "components/atoms/delete_link.html.twig" with {
+                    'path': path(deleteRoute,{'entity':entity.id})
+                } %}
+            </td>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

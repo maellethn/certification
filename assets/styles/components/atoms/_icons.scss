@@ -1,0 +1,22 @@
+.icon {
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &.pen::before {
+    background-image: url('../../../images/icons/pencil.svg');
+  }
+
+  &.trash::before {
+    background-image: url('../../../images/icons/trash.svg');
+  }
+}

@@ -1,5 +1,12 @@
 html {
     font-size: 16px;
+    body {
+        font-family: 'Roboto', sans-serif; // Utilisez la police de votre choix
+
+    }
+    * {
+        color: $dark-grey;
+    }
 
     /* you can chose any size here 16 is default */
     @media screen and (max-width: 991px) {
@@ -12,5 +19,27 @@ html {
 
     @media screen and (max-width: 600px) {
         font-size: 45%;
+    }
+
+    .wrapper {
+        padding: 2rem;
+    }
+
+    .btn {
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &.btn-primary {
+            background-color: $primary;
+            color: $secondary;
+        }
+
+        &.btn-secondary {
+            background-color: $secondary ;
+            color: $primary;
+        }
     }
 }

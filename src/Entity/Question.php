@@ -70,6 +70,11 @@ class Question
         return $this->tag;
     }
 
+    public function getTagName(): ?string
+    {
+        return $this->tag->getName();
+    }
+
     public function setTag(?Tags $tag): static
     {
         $this->tag = $tag;
