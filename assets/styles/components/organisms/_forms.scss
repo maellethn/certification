@@ -14,6 +14,12 @@ form {
     box-sizing: border-box;
   }
 
+  input[type=checkbox] {
+    margin-left: 1rem;
+    accent-color: $primary;
+    transform: scale(1.5);
+  }
+
   button[type=submit] {
     width: 100%;
     background-color: $primary;

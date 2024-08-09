@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\QuestionRepository;
+use App\Validator\ContainsValidAnswer;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -28,7 +29,8 @@ class Question
     /**
      * @var Collection<int, Answer>
      */
-    #[ORM\OneToMany(targetEntity: Answer::class, mappedBy: 'question', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: Answer::class, mappedBy: 'question', cascade: ['persist'], orphanRemoval: true)]
+    #[ContainsValidAnswer]
     private Collection $answers;
 
     public function __construct()

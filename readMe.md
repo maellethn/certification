@@ -41,3 +41,13 @@ L'objectif principal de ce projet est de fournir une plateforme éducative perme
 4. Compiler le theme
    ```bash
    npm run watch
+   
+## Lancer les tests en local
+
+1. Créer la bdd de test
+
+   ```bash
+      php bin/console doctrine:database:create --env=test
+   ```
+   ```bash
+      php bin/console doctrine:migrations:migrate --env=test

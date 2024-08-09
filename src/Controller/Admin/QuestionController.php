@@ -41,6 +41,7 @@ class QuestionController extends AdminBaseController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($entity);
             $entityManager->flush();
+            $this->addFlash('success', 'question have been created successfully');
             return $this->redirectToRoute('app_admin_question');
         }
 

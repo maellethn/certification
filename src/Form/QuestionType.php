@@ -6,7 +6,6 @@ use App\Entity\Question;
 use App\Entity\Tags;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Button;
 use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -26,6 +25,7 @@ class QuestionType extends AbstractType
             ])
             ->add('answers', CollectionType::class,[
                 'entry_type' => AnswerType::class,
+                'entry_options' => ['label' => false],
                 'allow_add' => true,
                 'allow_delete' => true,
                 'prototype' => true,
