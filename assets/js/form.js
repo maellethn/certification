@@ -8,9 +8,9 @@ function addFormToCollection(e) {
 
     const collectionHolder = document.querySelector('#question_answers');
 
-    const item = document.createElement('li');
+    const answer = document.createElement('div');
 
-    item.innerHTML = collectionHolder
+    answer.innerHTML = collectionHolder
         .dataset
         .prototype
         .replace(
@@ -18,30 +18,30 @@ function addFormToCollection(e) {
             collectionHolder.dataset.index
         );
 
-    collectionHolder.appendChild(item);
+    collectionHolder.appendChild(answer);
 
     collectionHolder.dataset.index++;
 
-    addTagFormDeleteLink(item)
+    addTagFormDeleteLink(answer)
 
 
 }
 
-function addTagFormDeleteLink(item) {
+function addTagFormDeleteLink(answer) {
     const removeFormButton = document.createElement('button');
-    removeFormButton.innerText = 'Delete this tag';
+    removeFormButton.innerText = 'Delete';
     removeFormButton.className = 'btn btn-primary';
 
-    item.append(removeFormButton);
+    answer.append(removeFormButton);
 
     removeFormButton.addEventListener('click', (e) => {
         e.preventDefault();
         // remove the li for the tag form
-        item.remove();
+        answer.remove();
     });
 }
 document
-    .querySelectorAll('.question_answers li')
+    .querySelectorAll('#question_answers > div')
     .forEach((tag) => {
         addTagFormDeleteLink(tag)
     })
