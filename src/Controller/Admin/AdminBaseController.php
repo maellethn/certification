@@ -9,15 +9,15 @@ use Symfony\Component\HttpFoundation\Response;
 abstract class AdminBaseController extends AbstractController
 {
     protected string $title;
-    protected string $addRoute;
-    protected string $editRoute;
-    protected string $deleteRoute;
+    protected ?string $addRoute;
+    protected ?string $editRoute;
+    protected ?string $deleteRoute;
     protected array $fields;
     protected string $defaultTemplate;
     protected EntityManagerInterface $entityManager;
     protected string $entityClass;
 
-public function __construct(EntityManagerInterface $entityManager, string $title, string $addRoute, string $editRoute, string $deleteRoute ,array $fields, string $entityClass, string $defaultTemplate = 'components/pages/admin_index.html.twig')
+public function __construct(EntityManagerInterface $entityManager, string $title, ?string $addRoute, ?string $editRoute, ?string $deleteRoute ,array $fields, string $entityClass, string $defaultTemplate = 'components/pages/admin_index.html.twig')
     {
         $this->entityManager = $entityManager;
         $this->title = $title;

@@ -19,15 +19,19 @@
         <tr>
             <td>{{ entity.id }}</td>
             {% for field in fields %}
-                <td>{{ attribute(entity, field)}}</td>
+                <td>{{ attribute(entity, field) }}</td>
             {% endfor %}
             <td class="actions">
-                {% include "components/atoms/edit_link.html.twig" with {
-                    'path': path(editRoute,{'entity':entity.id})
-                } %}
-                {% include "components/atoms/delete_link.html.twig" with {
-                    'path': path(deleteRoute,{'entity':entity.id})
-                } %}
+                {% if editRoute %}
+                    {% include "components/atoms/edit_link.html.twig" with {
+                        'path': path(editRoute,{'entity':entity.id})
+                    } %}
+                {% endif %}
+                {% if deleteRoute %}
+                    {% include "components/atoms/delete_link.html.twig" with {
+                        'path': path(deleteRoute,{'entity':entity.id})
+                    } %}
+                {% endif %}
             </td>
             {% endfor %}
         </tbody>
