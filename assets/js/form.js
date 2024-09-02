@@ -1,8 +1,12 @@
-document
-    .querySelectorAll('.add_answer_link')
-    .forEach(btn => {
-        btn.addEventListener("click", addFormToCollection)
+$(document).ready(function () {
+    $('.add_answer_link').on("click", function () {
+        addFormToCollection();
     });
+    $('#question_answers > div').each( function (index) {
+        addTagFormDeleteLink($(this))
+        }
+    );
+});
 
 function addFormToCollection(e) {
 
@@ -21,7 +25,6 @@ function addFormToCollection(e) {
     collectionHolder.appendChild(answer);
 
     collectionHolder.dataset.index++;
-
     addTagFormDeleteLink(answer)
 
 
@@ -31,7 +34,7 @@ function addTagFormDeleteLink(answer) {
     const removeFormButton = document.createElement('button');
     removeFormButton.innerText = 'Delete';
     removeFormButton.className = 'btn btn-primary';
-
+    console.log(answer[0]);
     answer.append(removeFormButton);
 
     removeFormButton.addEventListener('click', (e) => {
@@ -40,8 +43,3 @@ function addTagFormDeleteLink(answer) {
         answer.remove();
     });
 }
-document
-    .querySelectorAll('#question_answers > div')
-    .forEach((tag) => {
-        addTagFormDeleteLink(tag)
-    })

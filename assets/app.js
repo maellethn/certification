@@ -1,4 +1,5 @@
 import './bootstrap.js';
+const $ = require('jquery');
 /*
  * Welcome to your app's main JavaScript file!
  *

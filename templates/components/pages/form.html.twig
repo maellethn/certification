@@ -3,5 +3,7 @@
 {% block title %}Add | Edit {% endblock %}
 
 {% block body %}
-    {{ form(form) }}
+    <div data-controller="forms">
+        {{ form(form) }}
+    </div>
 {% endblock %}

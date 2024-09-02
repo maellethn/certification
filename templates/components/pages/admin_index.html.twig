@@ -3,7 +3,10 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block body %}
-
+    <h1 class="admin__title">{{ title }}</h1>
+    <div class="btn wrapper">
+        <a href="{{ path(editRoute) }}" class="btn btn-secondary">Add new</a>
+    </div>
     <table>
         <thead>
         <tr>
