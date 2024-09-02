@@ -33,6 +33,9 @@ class Question
     #[ContainsValidAnswer]
     private Collection $answers;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $help = null;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
@@ -110,6 +113,18 @@ class Question
                 $answer->setQuestion(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getHelp(): ?string
+    {
+        return $this->help;
+    }
+
+    public function setHelp(?string $help): static
+    {
+        $this->help = $help;
 
         return $this;
     }

@@ -19,6 +19,7 @@ class QuestionType extends AbstractType
         $builder
             ->add('title')
             ->add('text')
+            ->add('help')
             ->add('tag', EntityType::class, [
                 'class' => Tags::class,
                 'choice_label' => 'name',
