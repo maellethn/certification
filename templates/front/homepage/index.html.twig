@@ -1,20 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomepageController!{% endblock %}
+{% block title %}MyCertification{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="wrapper">
+    <h1>Bienvenue sur MyCertification - Votre Outil d'Accompagnement pour la Certification</h1>
+    <p>Atteignez vos objectifs de certification avec des questionnaires sur mesure, adaptés à votre apprentissage.</p>
+    <section>
+        <h2>Comment ça marche ?</h2>
+        <ul>
+            <li><strong>Créez vos propres questions à choix multiples</strong> : Au fur et à mesure de votre progression dans votre formation, vous pouvez créer vos propres questions pour renforcer votre compréhension des sujets abordés.</li>
+            <li><strong>Générez des questionnaires personnalisés</strong> : Mélangez toutes vos questions pour créer des quiz et évaluez vos connaissances à travers des exercices pratiques.</li>
+            <li><strong>Validez vos compétences</strong> : Répondez aux questionnaires, identifiez vos forces et vos axes d'amélioration, et suivez vos progrès vers la certification.</li>
+        </ul>
+    </section>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <section>
+        <h2>Pourquoi utiliser MyCertification ?</h2>
+        <ul>
+            <li><strong>Flexibilité totale</strong> : Adaptez les questions à votre rythme et à votre niveau de compréhension.</li>
+            <li><strong>Approfondissement des connaissances</strong> : En créant vos propres questions, vous solidifiez votre compréhension.</li>
+            <li><strong>Évaluation continue</strong> : Testez régulièrement vos compétences et voyez vos progrès en temps réel.</li>
+        </ul>
+    </section>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/src/Controller/Front/HomepageController.php</code></li>
-        <li>Your template at <code>/var/www/templates/front/homepage/index.html.twig</code></li>
-    </ul>
+    <section>
+        <h2>Rejoignez-nous dès maintenant !</h2>
+        <p><a href="{{ path('app_security_register')}}" class="btn-primary">Inscrivez-vous gratuitement</a> et commencez à créer vos questions !</p>
+        <p><a href="{{ path('app_login')}}" class="btn-secondary">Connectez-vous</a> pour accéder à vos questionnaires.</p>
+    </section>
 </div>
 {% endblock %}
