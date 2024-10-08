@@ -1,13 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div class="wrapper">
-        <section class="questions">
-            <h2 class="section_title">Random questions</h2>
-        </section>
+    <div class="wrapper questions">
+        <h2 class="section_title">Random questions</h2>
         <section class="questions__random__form">
             <form action="" id="questions__random">
                 {% for question in questions %}
-                    <div class="questions__random__form__tab">
+                    <div class="questions__random__form__tab d-none">
                         <h2 class="questions__random__form__tab__title">{{ question.title }}</h2>
                         <legend>{{ question.text }}</legend>
                         {% for answer in question.answers %}
@@ -19,8 +17,8 @@
 
                 <div>
                     <div>
-                        <button type="button" id="btn btn-secondary prevBtn">Previous</button>
-                        <button type="button" id="nextBtn btn btn-primary">Next</button>
+                        <button type="button" id="prevBtn" class="btn btn-secondary ">Previous</button>
+                        <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
                     </div>
                 </div>
 
