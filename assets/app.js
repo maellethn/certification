@@ -11,4 +11,5 @@ const $ = require('jquery');
 import './styles/app.scss';
 
 import './js/form';
+import './js/components/pages/quizz';
 
