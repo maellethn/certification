@@ -2,11 +2,12 @@ ul.menu {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    background-color: $secondary;
 
     .menu-link {
         display: flex;
         align-items: center;
-        padding-top: 1.5rem;
+        padding: 1rem 0;
 
         &::before {
             content: '';

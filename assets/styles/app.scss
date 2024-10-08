@@ -11,7 +11,13 @@
 @import "base/global";
 
 //Components
+@import "components/pages/homepage";
+
 @import "components/organisms/header";
 @import "components/organisms/forms";
+@import "components/organisms/footer";
+
 @import "components/molecules/tables";
+
+@import "components/atoms/icons";
 @import "components/atoms/icons";
