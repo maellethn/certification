@@ -22,7 +22,7 @@ jobs:
         image: mysql:5.7
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-          MYSQL_DATABASE: db_certification
+          MYSQL_DATABASE: certification
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping --silent" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -47,10 +47,10 @@ jobs:
             ${{ runner.os }}-php-${{ matrix.php-version }}-
 
       - name: Run Doctrine Migrations
-        run: php bin/console doctrine:migrations:migrate --no-interaction
+        run: php bin/console doctrine:migrations:migrate --env=test --no-interaction
 
       - name: Load Schema (if migrations are not available)
-        run: php bin/console doctrine:schema:update --force
+        run: php bin/console doctrine:schema:update --env=test --force
 
       - name: Execute tests (Unit and Feature tests)
         run: php bin/phpunit
