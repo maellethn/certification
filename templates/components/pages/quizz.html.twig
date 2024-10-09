@@ -2,27 +2,21 @@
 {% block body %}
     <div class="wrapper questions">
         <h2 class="section_title">Random questions</h2>
-        <section class="questions__random__form">
-            <form action="" id="questions__random">
-                {% for question in questions %}
-                    <div class="questions__random__form__tab d-none">
-                        <h2 class="questions__random__form__tab__title">{{ question.title }}</h2>
-                        <legend>{{ question.text }}</legend>
-                        {% for answer in question.answers %}
-                            <input type="checkbox" id="questions__random__form__tab__{{ answer.id }}" name="questions__random__form__tab__{{ answer.id }}" />
-                            <label for="questions__random__form__tab__{{ answer.id }}">{{ answer.text }}</label>
-                        {% endfor %}
-                    </div>
-                {% endfor %}
-
-                <div>
-                    <div>
-                        <button type="button" id="prevBtn" class="btn btn-secondary ">Previous</button>
-                        <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
-                    </div>
+        <section class="symfony_form">
+            {{ form_start(form) }}
+            {% for child in form.children %}
+                <div class="questions__random__form__tab d-none">
+                    {% if child.vars.row_attr.name is defined %}
+                        <h3>{{ child.vars.row_attr.name }}</h3>
+                    {% endif %}
+                    {{ form_row(child) }}
                 </div>
-
-            </form>
+            {% endfor %}
+            <div class="questions__random__form__btn_group">
+                <button type="button" id="prevBtn" class="btn btn-secondary ">Previous</button>
+                <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
+            </div>
+            {{ form_end(form) }}
         </section>
     </div>
 {% endblock %}
