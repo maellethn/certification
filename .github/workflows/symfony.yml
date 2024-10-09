@@ -18,7 +18,7 @@ jobs:
       matrix:
         php-version: ['8.2']  # Matrice avec plusieurs versions de PHP
     services:
-      db_certification:  # Utiliser le nom du service tel qu'il est dans docker-compose
+      db:  # Utiliser le nom du service tel qu'il est dans docker-compose
         image: mysql:5.7
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
