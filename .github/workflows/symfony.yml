@@ -46,9 +46,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-php-${{ matrix.php-version }}-
 
-      - name: Check MySQL Logs
-        run: docker logs $(docker logs -f)
-
       - name: Run Doctrine Migrations
         run: php bin/console doctrine:migrations:migrate --no-interaction
 
