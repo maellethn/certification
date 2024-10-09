@@ -46,6 +46,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-php-${{ matrix.php-version }}-
 
+      - name: Check MySQL Logs
+        run: docker logs $(docker ps -q --filter "name=db_certification") && docker logs $(docker ps -q --filter "name=certification")
+
       - name: Wait for MySQL to be ready
         run: |
           sudo apt-get install -y mysql-client
