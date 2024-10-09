@@ -18,7 +18,7 @@ jobs:
       matrix:
         php-version: ['8.2']  # Matrice avec plusieurs versions de PHP
     services:
-      mysql:
+      db_certification:
         image: mysql
         env:
           MYSQL_ROOT_PASSWORD: root
@@ -49,7 +49,7 @@ jobs:
       - name: Create .env.test.local
         run: |
           cp .env .env.test.local
-          echo "DATABASE_URL=mysql://root:root@127.0.0.1:3306/certification_test" >> .env.test.local
+          echo "DATABASE_URL=db_certification://root:root@127.0.0.1:3306/certification_test" >> .env.test.local
 
       - name: Wait for MySQL to be ready
         run: sudo apt-get install -y mysql-client && until mysqladmin ping --host=127.0.0.1 --user=root --password=root --silent; do sleep 1; done
