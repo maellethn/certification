@@ -47,7 +47,7 @@ jobs:
             ${{ runner.os }}-php-${{ matrix.php-version }}-
 
       - name: Check MySQL Logs
-        run: docker logs $(docker ps -q --filter "name=db_certification")
+        run: docker logs $(docker ps -q --filter)
 
       - name: Wait for MySQL to be ready
         run: |
