@@ -49,7 +49,7 @@ jobs:
       - name: Wait for MySQL to be ready
         run: |
           sudo apt-get install -y mysql-client
-          until mysqladmin ping --host=127.0.0.1 --user=root --silent; do sleep 1; done
+          until mysqladmin ping --host=db_certification --user=root --silent; do sleep 1; done
 
       - name: Run Doctrine Migrations
         run: php bin/console doctrine:migrations:migrate --no-interaction
