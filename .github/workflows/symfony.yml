@@ -46,25 +46,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-php-${{ matrix.php-version }}-
 
-      - name: Create .env.test.local
-        run: |
-          cp .env .env.test.local
-          echo "DATABASE_URL=db_certification://root:@127.0.0.1:3306/certification_test" >> .env.test.local
-
       - name: Wait for MySQL to be ready
         run: |
           sudo apt-get install -y mysql-client
-          until mysqladmin ping --host=db_certification --user=root --silent; do sleep 1; done
+          until mysqladmin ping --host=127.0.0.1 --user=root --silent; do sleep 1; done
 
       - name: Run Doctrine Migrations
         run: php bin/console doctrine:migrations:migrate --no-interaction
 
       - name: Load Schema (if migrations are not available)
         run: php bin/console doctrine:schema:update --force
-
-      # (Optionnel) Charger des fixtures si nécessaire
-      # - name: Load Doctrine Fixtures
-      #   run: php bin/console doctrine:fixtures:load --no-interaction
 
       - name: Execute tests (Unit and Feature tests)
         run: php bin/phpunit
