@@ -12,7 +12,6 @@ $( document ).ready(function() {
 });
 
 function showTab(n) {
-
     // This function will display the specified tab of the form ...
     var x = $('.questions .questions__random__form__tab');
     $(".questions .questions__random__form__tab:not([class*='d-none'])").addClass("d-none");
@@ -24,8 +23,6 @@ function showTab(n) {
         $(".questions #prevBtn").removeClass('d-none');
     }
     if (n === (x.length - 1)) {
-        $(".questions #nextBtn").text('Submit');
-    } else {
-        $(".questions #nextBtn").text('Next');
+        $('.questions__random__form__btn_group').append("<button type=\"submit\" id=\"prevBtn\" class=\"btn btn-success \">Submit</button>")
     }
 }
