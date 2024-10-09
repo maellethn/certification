@@ -50,6 +50,9 @@ jobs:
             ${{ runner.os }}-php-${{ matrix.php-version }}-
 
       - name: Run Doctrine Migrations
+        run: php bin/console doctrine:database:create --env=test --no-interaction
+
+      - name: Run Doctrine Migrations
         run: php bin/console doctrine:migrations:migrate --env=test --no-interaction
 
       - name: Load Schema (if migrations are not available)
