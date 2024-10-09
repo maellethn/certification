@@ -26,6 +26,8 @@ jobs:
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping --silent" --health-interval=10s --health-timeout=5s --health-retries=3
+      node:
+        image: node:20 # Choisissez la version de Node.js souhaitée
 
     steps:
       - uses: actions/checkout@v4
@@ -49,6 +51,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-php-${{ matrix.php-version }}-
 
+      - name: Create .env.test.local
+        run: |
+          cp .env .env.test.local
+          echo "DATABASE_URL=mysql://root:@127.0.0.1:3306/certification?serverVersion=8.3" >> .env.test.local
+
       - name: Run Doctrine Migrations
         run: php bin/console doctrine:database:create --env=test --no-interaction
 
@@ -57,6 +64,9 @@ jobs:
 
       - name: Load Schema (if migrations are not available)
         run: php bin/console doctrine:schema:update --env=test --force
+
+      - name: Compile theme
+        run: npm run watch
 
       - name: Execute tests (Unit and Feature tests)
         run: php bin/phpunit
