@@ -65,6 +65,9 @@ jobs:
       - name: Load Schema (if migrations are not available)
         run: php bin/console doctrine:schema:update --env=test --force
 
+      - name: Install theme
+        run: npm install
+
       - name: Compile theme
         run: npm run watch
 
