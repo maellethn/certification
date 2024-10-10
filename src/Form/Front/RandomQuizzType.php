@@ -39,7 +39,8 @@ class RandomQuizzType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => null,
-            'questions' => []
+            'questions' => [],
+            'correction' => []
         ]);
     }
 }

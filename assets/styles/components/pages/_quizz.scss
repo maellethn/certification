@@ -1,3 +1,13 @@
 .questions {
-
+  .questions__random__form__tab{
+    border: solid 0.5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    &.sucess {
+      border-color: $sucess;
+    }
+    &.error {
+      border-color: $error;
+    }
+  }
 }
