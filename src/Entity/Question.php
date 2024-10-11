@@ -36,9 +36,16 @@ class Question
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $help = null;
 
+    /**
+     * @var Collection<int, UserHistory>
+     */
+    #[ORM\OneToMany(targetEntity: UserHistory::class, mappedBy: 'question')]
+    private Collection $userHistories;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
+        $this->userHistories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -125,6 +132,36 @@ class Question
     public function setHelp(?string $help): static
     {
         $this->help = $help;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, UserHistory>
+     */
+    public function getUserHistories(): Collection
+    {
+        return $this->userHistories;
+    }
+
+    public function addUserHistory(UserHistory $userHistory): static
+    {
+        if (!$this->userHistories->contains($userHistory)) {
+            $this->userHistories->add($userHistory);
+            $userHistory->setQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserHistory(UserHistory $userHistory): static
+    {
+        if ($this->userHistories->removeElement($userHistory)) {
+            // set the owning side to null (unless already changed)
+            if ($userHistory->getQuestion() === $this) {
+                $userHistory->setQuestion(null);
+            }
+        }
 
         return $this;
     }
