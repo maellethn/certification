@@ -13,7 +13,7 @@
             {% for child in form.children %}
                 {% set questionId = (child.vars.name | toInt) %}
                 {% set is_valid = (correction[questionId] is defined and not (false in correction[questionId])) %}
-                <div class="questions__random__form__tab d-none {{ correction is defined and is_valid ? 'sucess' : 'error' }}">
+                <div class="questions__random__form__tab d-none {{ correction is defined  ? (is_valid ? 'sucess' : 'error') : '' }}">
                     {% if child.vars.row_attr.name is defined %}
                         <h3>{{ child.vars.row_attr.name }}</h3>
                     {% endif %}
