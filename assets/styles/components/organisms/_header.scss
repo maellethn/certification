@@ -1,8 +1,16 @@
+.main-menu {
+    display: flex;
+    background-color: $secondary;
+    .user-menu {
+        width: 30%;
+    }
+}
 ul.menu {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     background-color: $secondary;
+    width: 70%;
 
     .menu-link {
         display: flex;
